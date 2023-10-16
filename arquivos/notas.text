@@ -1,0 +1,11 @@
+Teremos como opção para criação de sites os seguintes frameworks:
+ - Flask
+ - Django
+
+Estes sendo os mais usados, mas usaremos o Flask por ter um início de aprendizdo mais facíl
+
+Para encaminharmos um link com destino em outra página HTML, usamos o método url_for('nome_da_function_associada_a_página') dentro de '{{ }}' no codigo HTML para dizer ser um código em python. 
+
+EX.: <a href="{{ url_for('homepage') }}">sair</a>
+ 
+
