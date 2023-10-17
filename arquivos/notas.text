@@ -1,11 +1,41 @@
-Teremos como opção para criação de sites os seguintes frameworks:
- - Flask
- - Django
+# BIBLIOTECAS PARA CRIAR SITE:
 
-Estes sendo os mais usados, mas usaremos o Flask por ter um início de aprendizdo mais facíl
+    Teremos como opção para criação de sites os seguintes frameworks:
+        - Flask
+        - Django
 
-Para encaminharmos um link com destino em outra página HTML, usamos o método url_for('nome_da_function_associada_a_página') dentro de '{{ }}' no codigo HTML para dizer ser um código em python. 
+    Estes sendo os mais usados, mas usaremos o Flask por ter um início de aprendizdo mais facíl.
 
-EX.: <a href="{{ url_for('homepage') }}">sair</a>
+
+# ESTRUTURAÇÃO DE PASTAS/ARQUIVOS PARA CRIAR SITE COM FLASK 
+
+    Arquivos de código:
+
+        - __init__.py: Arquivo para criar a aplicação/site;
+        - forms.py: Arrquivo para formulários;
+        - models.py: Arquivo para estrutura do Banco de Dados;
+        - routes.py: Arquivo para criar rotas/links do site;
+        - main.py: Arquvio para executar a aplicação/site;
+        - templates: Pasta com arquivos HTML
+
+
+# ASSOCIANDO UMA PAGE HTML EM PYTHON 
+
+    Para encaminharmos um link com destino em outra página HTML, usamos o método url_for('nome_da_function_associada_a_página') dentro de '{{ }}' no codigo HTML para dizer ser um código em python. 
+
+        EX.: <a href="{{ url_for('homepage') }}">sair</a>
  
 
+# IMPORTAÇÕES ARQUIVOS DE CÓDIGO EM REFERÊNCIA CIRCULAR
+
+    Referência Circular é quando um arquivo precisa do outro pra funcionar. Sejam os arquivos, script1 e script2; numa Referência Circular, o script1 importaria o script2 e, o script2 importaria o script1. 
+
+    Todos os arquivos de código que forem importados no arquivo "__init__.py" , deverão ser importados ao final do código. Pois a aplicação/site vai poder existir sem a importação de demais arquvios script.
+
+        Ex: from flask import Flask
+
+            app = Flask(__name__)
+
+            from scripts import routes
+
+        O arquvio "routes" foi importado ao final, ou seja, ele não foi necessário para criação do "app" e poderemos usá-lo com o app já criado anterior a sua importação.
