@@ -1,7 +1,7 @@
 # Arquivo para criar rotas/links do site
 
 from flask import render_template, url_for
-from scripts import app
+from __init__ import app
 
 # Colocando no servidor local, o site no ar (link de acessso ao site no terminal após rodar 'app.run()')
 @app.route('/')

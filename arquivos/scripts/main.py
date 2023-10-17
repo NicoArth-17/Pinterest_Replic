@@ -1,6 +1,6 @@
 # Arquvio para executar a aplicação/site
 
-from scripts import app
+from __init__ import app
 
 if __name__ == '__main__':
 # # if __name__ == '__nome do arquivo__': -> significa que o código inserido a baixo deverá ser executado neste arquivo, e quando este arquivo for importado em outro, o código a seguir não será executado
