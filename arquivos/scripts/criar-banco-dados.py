@@ -3,6 +3,7 @@
 # Estes comando poderiam ter sido executados no terminal para não precisar criar outro arquivo
 
 from __init__ import database, app
+from models import Usuario, Foto # importando tabelas
 
 # Criando um contexto para criar banco de dados (vai criar o SQL a partir do 'app')
 with app.app_context():
