@@ -2,6 +2,7 @@
 
 from flask import render_template, url_for
 from __init__ import app
+from flask_login import login_required # permitir acesso as páginas/routes apenas com o login acessado
 
 # Colocando no servidor local, o site no ar (link de acessso ao site no terminal após rodar 'app.run()')
 @app.route('/')
@@ -13,5 +14,6 @@ def homepage():
 
 # O nome dentro de '< >' se torna uma variável, definida ao escrever na url
 @app.route('/perfil/<usuario>')
+@login_required # diz que só é permitido acesso se o user estiver logado
 def perfil(usuario):
     return render_template('perfil.html', usuario=usuario)
