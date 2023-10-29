@@ -19,10 +19,9 @@ app.config['SECRET_KEY'] = 'c85b5271079061f807ece62a3631e6be'
 # Criando df para o banco de dados
 database = SQLAlchemy(app)
 
-
 # Criando um login
 bcrypt = Bcrypt(app) # Criptográfia
 login_manager = LoginManager(app) # Gerenciador
-login_manager.login_view = 'homepage' # O que o usuario vai ver quando não estiver logado
+login_manager.login_view = 'homepage' # Para onde o usuario vai ser redirecionado quando não estiver logado
 
 import routes

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro</title>
+</head>
+<body>
+    <h1>Crie sua conta</h1>
+
+    <!-- Gerando formulário em html -->
+
+    <form method="post" action=""> 
+        <!-- method='post' permite enviar informações (botão submit) -->
+        <!-- Também devemos adicionar methods=['GET', 'POST'] como parâmetro no arquivo routes em @app.route() referênte a esta page -->
+    
+            <!-- Importando formulário criado em python -->
+    
+            {{ formulario.csrf_token }}
+            <!-- Sempre quando carregarmos um formulário python em html, devemos utilizar o 'form'.csrf_token -->
+            <!-- .csrf_token gera uma validação e uma segurança pro form -->
+    
+                <!-- Definindo campos e labels do formulário -->
+    
+                {{ formulario.email.label() }}
+                {{ formulario.email() }}
+
+                {{ formulario.username.label() }}
+                {{ formulario.username() }}
+    
+                {{ formulario.senha.label() }}
+                {{ formulario.senha() }}
+
+                {{ formulario.confirmaçao_senha.label() }}
+                {{ formulario.confirmaçao_senha() }}
+    
+                {{ formulario.botao() }}
+    
+        </form>
+
+</body>
+</html>

@@ -7,5 +7,30 @@
 </head>
 <body>
     <h1>Meu primeiro site python</h1> 
+
+    <!-- Gerando formulário em html -->
+
+    <form method="post" action=""> 
+    <!-- method='post' permite enviar informações (botão submit) -->
+    <!-- Também devemos adicionar methods=['GET', 'POST'] como parâmetro no arquivo routes em @app.route() referênte a esta page -->
+
+        <!-- Importando formulário criado em python -->
+
+        {{ formulario.csrf_token }}
+        <!-- Sempre quando carregarmos um formulário python em html, devemos utilizar o 'form'.csrf_token -->
+        <!-- .csrf_token gera uma validação e uma segurança pro form -->
+
+            <!-- Definindo campos e labels do formulário -->
+
+            {{ formulario.email.label() }}
+            {{ formulario.email() }}
+
+            {{ formulario.senha.label() }}
+            {{ formulario.senha() }}
+
+            {{ formulario.botao() }}
+
+    </form>
+
 </body>
 </html>

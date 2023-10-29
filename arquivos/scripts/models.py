@@ -1,4 +1,4 @@
-# Arquivo para estrutura do Banco de Dados
+# Arquivo para estrutura(tabelas) do Banco de Dados
 
 from __init__ import database, login_manager
 from datetime import datetime
@@ -7,7 +7,7 @@ from flask_login import UserMixin # Class q vai gerenciar o login
 # Function necessária para toda criação de login com flask
 @login_manager.user_loader # indica que em seguida vem uma functio que carrega um usuário
 def load_usuario(id_usuario):
-    return Usuario.query.get(int(id_usuario)) # retorna um usuário específico
+    return Usuario.query.get(int(id_usuario)) # retorna um usuário específico (pega uma informção na class Usuario)
 
 # Criando classes/objetos que serão as tabelas no arquivo SQL
 # OS atributos serão colunas

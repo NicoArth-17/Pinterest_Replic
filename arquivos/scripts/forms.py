@@ -11,7 +11,7 @@ class FormLogin(FlaskForm):
     botao = SubmitField('Entrar', validators=[ValidationError()])
 
 
-class FormCriarConta(FlaskForm):
+class FormCadastrar(FlaskForm):
     email = StringField('Email', validators=[DataRequired(), Email()])
     username = StringField('Usuário', validators=[DataRequired()])
     senha = PasswordField('Senha', validators=[DataRequired(), Length(8,16)])
