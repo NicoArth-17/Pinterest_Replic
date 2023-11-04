@@ -22,6 +22,6 @@ def cadastrar():
 
 # O nome dentro de '< >' se torna uma variável, definida ao escrever na url
 @app.route('/perfil/<usuario>')
-@login_required # diz que só é permitido acesso se o user estiver logado
+@login_required # restringe o acesso se o user estiver logado
 def perfil(usuario):
     return render_template('perfil.html', usuario=usuario)

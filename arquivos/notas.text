@@ -39,3 +39,7 @@
             from scripts import routes
 
         O arquvio "routes" foi importado ao final, ou seja, ele não foi necessário para criação do "app" e poderemos usá-lo com o app já criado anterior a sua importação.
+
+
+istall email_validator
+versões flask

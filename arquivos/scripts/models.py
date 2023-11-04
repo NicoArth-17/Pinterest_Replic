@@ -5,7 +5,7 @@ from datetime import datetime
 from flask_login import UserMixin # Class q vai gerenciar o login
 
 # Function necessária para toda criação de login com flask
-@login_manager.user_loader # indica que em seguida vem uma functio que carrega um usuário
+@login_manager.user_loader # decorator indica que em seguida vem uma functio que carrega e retorna um usuário
 def load_usuario(id_usuario):
     return Usuario.query.get(int(id_usuario)) # retorna um usuário específico (pega uma informção na class Usuario)
 
@@ -13,8 +13,12 @@ def load_usuario(id_usuario):
 # OS atributos serão colunas
 
 class Usuario(database.Model, UserMixin):
+# database.Model -> permite criar a class de modo à construir uma tabela, ou seja, de forma que o banco de dados vai entender
+# User.Mixin -> determina a classe que vai gerenciar a estrutura de login
+
     # Dentro dos parênteses estão as regras para definir o tipo de info que a coluna vai receber
     id = database.Column(database.Integer, primary_key=True)
+    # database.Column -> torna o atributo uma coluna da tabela
     # database.Integer -> tem que ser um numero inteiro
     # primary_key=True -> chave primária (reconhece a informação como única)
     username = database.Column(database.String, nullable=False)
@@ -23,13 +27,13 @@ class Usuario(database.Model, UserMixin):
     email = database.Column(database.String, nullable=False, unique=True)
     # unique=True -> email não poder ser igual outro
     senha = database.Column(database.String, nullable=False)
-    fotos = database.relationship('Foto', backref='usuario', lazy=True)
-    # .relationship('nome da classe que vai se relacionar', backref='usuario', lazy=True) -> diz que este atributo vai ser uma relação entre a tabela de Usuario e a tabela de Foto (não é ma coluna)
+    posts = database.relationship('Post', backref='usuario', lazy=True)
+    # .relationship('nome da classe que vai se relacionar', backref='usuario', lazy=True) -> diz que este atributo vai ser uma relação entre a tabela de Usuario e a tabela de Post (não é ma coluna)
     # backref= -> faz uma relação inversa
     # lazy=True -> otimizar a busca no banco de dados
 
 
-class Foto(database.Model):
+class Post(database.Model):
     id = database.Column(database.Integer, primary_key=True)
     img = database.Column(database.String, default='default.png')
     # default= -> diz oque vai aparecer por padrão caso a info não seja inserida
