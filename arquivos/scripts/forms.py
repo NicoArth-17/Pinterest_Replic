@@ -1,4 +1,4 @@
-# Arrquivo para formulários
+# Arquivo para formulários
 
 from flask_wtf import FlaskForm # estrutura que permitirá a criação dos forms
 from wtforms import StringField, PasswordField, SubmitField # importar os campos que serão usados
@@ -8,7 +8,7 @@ from models import Usuario
 class FormLogin(FlaskForm):
     email = StringField('Email', validators=[DataRequired(), Email()]) # tipo_do_campo('label do campo', validators=ListaDeValidadores)
     senha = PasswordField('Senha', validators=[DataRequired()])
-    botao = SubmitField('Entrar', validators=[ValidationError()])
+    botao = SubmitField('Entrar')
 
 
 class FormCadastrar(FlaskForm):
@@ -17,7 +17,7 @@ class FormCadastrar(FlaskForm):
     senha = PasswordField('Senha', validators=[DataRequired(), Length(8,16)])
     confirmaçao_senha = PasswordField('Confirmar Senha', validators=[DataRequired(), EqualTo('senha')])
     # EqualTo('NomeDoCampo/Atributo que deve ser igual')
-    botao = SubmitField('Cadastrar', validators=[ValidationError()])
+    botao = SubmitField('Cadastrar')
 
     # Já que no arquivo models.py definimos o campo de email como uma imnformação unique, criaremos uma validação para esse info realmente ser única 
     # Function para validação de campo no form, deve ter nome digitado da seguinte forma: validate_NomeDoCampo/Atributo()
