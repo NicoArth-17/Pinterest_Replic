@@ -41,5 +41,18 @@
         O arquvio "routes" foi importado ao final, ou seja, ele não foi necessário para criação do "app" e poderemos usá-lo com o app já criado anterior a sua importação.
 
 
-istall email_validator
-versões flask
+# VERSÕES PYPI
+
+    A última verão do Flask está apresentando erro para executar este projeto. Com isso será usada as seguintes versões PYPI:
+    - flask==2.2.5
+    - werkzeug==2.3.0 -> não entendi para oq serve já que não foi importada no projeto
+
+
+# CRIPTOGRÁFIA
+
+    Ao criptografar a senha que o usuário irá cadastrar utlizando Bcrypt, está senha será armazenada no banco de dados de forma criptografada para garantir uma maior segurança ao usuário. 
+
+
+# OBSERVAÇÕES
+
+    1. Foi instalado a PYPI 'email_validator' para validação de email, porém não entendi porque não foi importada no projeto, e a validação do email foi feita pela biblioteca 'wtforms.validators'.
