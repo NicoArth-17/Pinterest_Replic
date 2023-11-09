@@ -16,6 +16,9 @@ app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///comunidade.db'
 # Chave de segurança
 app.config['SECRET_KEY'] = 'c85b5271079061f807ece62a3631e6be'
 
+# Criando um armazenamento das fotos no perfil
+app.config['UPLOAD_FOLDER'] = 'static/fotos_posts'
+
 # Criando df para o banco de dados
 database = SQLAlchemy(app)
 

@@ -6,8 +6,31 @@
     <title>UserName</title>
 </head>
 <body>
-    <p>Perfil do usuário: {{ usuario }}</p>
+    <p>Perfil do usuário: {{ usuario.username }}</p>
     <!-- {{ código }} -> é um meio de usar códigos python em html-->
+
+    {% if formulario %} <!-- Se existir formulário -->
+
+        <form method="POST" enctype="multipart/form-data">
+        <!-- method='post' permite enviar informações (botão submit) -->
+        <!-- enctype="multipart/form-data" permite que receba o arquivo no form para ser armazenado -->
+
+            {{ formulario.csrf_token}}
+
+            {{ formulario.post() }}
+            {{ formulario.botao() }}
+
+        </form>
+
+    {% endif %}
+
+    <img src="{{ url_for('static', filename='fotos_post/default.png') }}">
+
+    <!-- criando um loop python para exibir os posts inseridos no perfil -->
+    {% for post in usuario.posts %}
+        <!-- <img src="" alt=""> -->
+    {% endfor %}
+
 
     <a href="{{ url_for('logout') }}">sair</a>
     <!-- explicação em notas.text -->

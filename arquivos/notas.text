@@ -44,8 +44,8 @@
 # VERSÕES PYPI
 
     A última verão do Flask está apresentando erro para executar este projeto. Com isso será usada as seguintes versões PYPI:
-    - flask==2.2.5
-    - werkzeug==2.3.0 -> não entendi para oq serve já que não foi importada no projeto
+    - flask==2.2.5 
+    - werkzeug==2.3.0 -> O Werkzeug é uma biblioteca que o Flask usa internamente para fazer a interface de rede do servidor web
 
 
 # CRIPTOGRÁFIA
@@ -55,4 +55,4 @@
 
 # OBSERVAÇÕES
 
-    1. Foi instalado a PYPI 'email_validator' para validação de email, porém não entendi porque não foi importada no projeto, e a validação do email foi feita pela biblioteca 'wtforms.validators'.
+    1. Foi instalado a PYPI 'email_validator' para validação de email, o WTForms usa internamente para fazer validação de e-mails.

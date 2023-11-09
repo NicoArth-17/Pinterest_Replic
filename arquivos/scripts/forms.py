@@ -1,7 +1,7 @@
 # Arquivo para formulários
 
 from flask_wtf import FlaskForm # estrutura que permitirá a criação dos forms
-from wtforms import StringField, PasswordField, SubmitField # importar os campos que serão usados
+from wtforms import StringField, PasswordField, SubmitField, FileField # importar os campos que serão usados
 from wtforms.validators import DataRequired, Email, EqualTo, Length, ValidationError # Validação de campos respectivamente: campo obrigatótio, email, se um campo está igual a outro, quantidade de caracteres, mensagem de erro
 from models import Usuario
 
@@ -31,3 +31,7 @@ class FormCadastrar(FlaskForm):
 
         if user_email: # se já existir este email cadastrado, aparecerá uma mensagem de erro
             return ValidationError('Email já cadastrado')
+        
+class FormPost(FlaskForm):
+    post = FileField('Foto', validators=[DataRequired()])
+    botao = SubmitField('Enviar')

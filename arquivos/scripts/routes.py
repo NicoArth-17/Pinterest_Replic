@@ -3,7 +3,7 @@
 from flask import render_template, url_for, redirect
 from __init__ import app, bcrypt, database
 from flask_login import login_user, logout_user, login_required, current_user
-from forms import FormLogin, FormCadastrar
+from forms import FormLogin, FormCadastrar, FormPost
 from models import Usuario, Post
 
 # Colocando no servidor local, o site no ar (link de acessso ao site no terminal após rodar 'app.run()')
@@ -28,7 +28,7 @@ def homepage():
                 login_user(user)
 
                 #Redirecionando para page de perfil
-                return redirect(url_for('perfil', usuario=user.username))
+                return redirect(url_for('perfil', id_user=user.id))
 
 
     return render_template('home.html', formulario=formlogar)
@@ -62,15 +62,30 @@ def cadastrar():
         # remember=True -> armazena o login nos cookies do navegador, ou seja, caso o usuario feche a janela, quando ela for reaberta o sistema irá lembrar que o user já estava logado
 
         # Redirecionando o usuário para a tela de perfil após concluir o cadastro
-        return redirect(url_for('perfil', usuario=user.username))
+        return redirect(url_for('perfil', id_user=user.id))
 
     return render_template('cadastrar.html', formulario=formcadastro)
 
-# O nome dentro de '< >' se torna uma variável, definida ao escrever na url. Deve ser um informação única.
-@app.route('/perfil/<usuario>')
+# O nome dentro de '< >' se torna uma variável, definida ao escrever na url.
+# Deve ser um informação única do usuário (por exemplo o id).
+@app.route('/perfil/<id_user>', methods=['GET', 'POST'])
 @login_required # restringe o acesso se o user estiver logado
-def perfil(usuario):
-    return render_template('perfil.html', usuario=usuario)
+def perfil(id_user):
+
+    # Verificando se está acessando o próprio perfil
+    # E já que estaremos logados no nosso próprio perfil é aqui que carregaremos as fotos
+    if int(id_user) == int(current_user.id):
+    # current_user -> remete ao usuário logado no momento
+
+        formfoto = FormPost()
+
+        return render_template('perfil.html', usuario=current_user, formulario=formfoto)
+    
+    # Caso esteja acessando um outro perfil
+    else:
+        # Buscando usuário pelo id
+        usuario = Usuario.query.get(int(id_user))
+        return render_template('perfil.html', usuario=usuario, formulario=None)
 
 # Criando sistema de Logout do usuário
 # Ao clicar no botão 'sair' na página 'perfil.html', o usuário será redirecionado para a rota de logout
