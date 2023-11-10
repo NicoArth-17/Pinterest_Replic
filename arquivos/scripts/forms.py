@@ -5,6 +5,7 @@ from wtforms import StringField, PasswordField, SubmitField, FileField # importa
 from wtforms.validators import DataRequired, Email, EqualTo, Length, ValidationError # Validação de campos respectivamente: campo obrigatótio, email, se um campo está igual a outro, quantidade de caracteres, mensagem de erro
 from models import Usuario
 
+
 class FormLogin(FlaskForm):
     email = StringField('Email', validators=[DataRequired(), Email()]) # tipo_do_campo('label do campo', validators=ListaDeValidadores)
     senha = PasswordField('Senha', validators=[DataRequired()])
@@ -33,5 +34,5 @@ class FormCadastrar(FlaskForm):
             return ValidationError('Email já cadastrado')
         
 class FormPost(FlaskForm):
-    post = FileField('Foto', validators=[DataRequired()])
+    post = FileField('Imagem', validators=[DataRequired()])
     botao = SubmitField('Enviar')

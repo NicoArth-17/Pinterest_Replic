@@ -17,6 +17,8 @@
         - routes.py: Arquivo para criar rotas/links do site;
         - main.py: Arquvio para executar a aplicação/site;
         - templates: Pasta com arquivos HTML
+        - instance: Pasta criada automáticamente com este nome para comportar SQL ao criá-lo
+        - static: Pasta de arquivos estáticos. Imagens...
 
 
 # ASSOCIANDO UMA PAGE HTML EM PYTHON 
@@ -56,3 +58,5 @@
 # OBSERVAÇÕES
 
     1. Foi instalado a PYPI 'email_validator' para validação de email, o WTForms usa internamente para fazer validação de e-mails.
+
+    2. A função validate_on_submit() na verdade valida todo o formulário, não apenas o campo designado como SubmitField(). Ela é usada para verificar se o método de solicitação do formulário é "POST" e se todos os campos passaram por suas respectivas validações. Isso inclui verificar se os campos estão preenchidos adequadamente, se os valores estão no formato correto e se atendem a quaisquer outras regras de validação que você tenha definido.

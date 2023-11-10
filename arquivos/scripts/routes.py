@@ -5,6 +5,9 @@ from __init__ import app, bcrypt, database
 from flask_login import login_user, logout_user, login_required, current_user
 from forms import FormLogin, FormCadastrar, FormPost
 from models import Usuario, Post
+import os
+from werkzeug.utils import secure_filename # Para evitar salvar arquivos em que o nome possa comprometer o código, com algum caracter especial ou coisa do tipo
+
 
 # Colocando no servidor local, o site no ar (link de acessso ao site no terminal após rodar 'app.run()')
 @app.route('/', methods=['GET', 'POST'])
@@ -78,6 +81,31 @@ def perfil(id_user):
     # current_user -> remete ao usuário logado no momento
 
         formfoto = FormPost()
+
+        # Checando validação dos campos do formulário ao clicar no botão Submit
+        if formfoto.validate_on_submit(): 
+            # Selecionando o arquivo do post
+            arquivo_post = formfoto.post.data
+
+            # Convertendo o nome do arquivo_post para não gerar nenhum problema
+            secure_name = secure_filename(arquivo_post.filename)
+
+            # Escolhendo onde o arquivo ficará armazenado
+            armazem_posts = os.path.join(os.path.abspath(os.path.dirname(__file__)),
+                                          app.config['UPLOAD_FOLDER'],
+                                            secure_name)
+            # os.path.join() -> caminho de arquivo separado por vírgula ao invés de barra
+            # os.path.abspath() -> encontra o caminho a partir do nome de algum arquivo
+            # os.path.dirname(__file__) -> encontra o nome deste arquivo
+            # app.config['UPLOAD_FOLDER'] -> variável que representa um caminho, criada no arquivo '__init__.py'
+
+            # Salvando arquivo
+            arquivo_post.save(armazem_posts)
+
+            # Registrando post no SQL
+            post = Post(img=secure_name, id_user=current_user.id) # data_criaçao e id são criados automáticamente, não precisam ser passados nos parâmetros ao criar o objeto
+            database.session.add(post)
+            database.session.commit()
 
         return render_template('perfil.html', usuario=current_user, formulario=formfoto)
     
