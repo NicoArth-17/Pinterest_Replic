@@ -54,6 +54,8 @@
 
     Ao criptografar a senha que o usuário irá cadastrar utlizando Bcrypt, está senha será armazenada no banco de dados de forma criptografada para garantir uma maior segurança ao usuário. 
 
+# USO DE FRAMEWORKS PARA EDIÇÃO HTML E CSS
+
 
 # OBSERVAÇÕES
 

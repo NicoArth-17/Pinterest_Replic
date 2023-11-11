@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
     <title>FakePinterest</title>
 </head>
 <body>
@@ -31,6 +32,9 @@
             {{ formulario.botao() }}
 
     </form>
+
+    <!-- Botão de redirecionamento para página de cadastro -->
+    <a href="{{ url_for('cadastrar') }}">Ainda não tem uma conta? Cadastre-se!</a>
 
 </body>
 </html>

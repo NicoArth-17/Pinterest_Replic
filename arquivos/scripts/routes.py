@@ -123,3 +123,11 @@ def perfil(id_user):
 def logout():
     logout_user() # reconhece qual usuário já está logado e desconecta ele
     return redirect(url_for('homepage'))
+
+@app.route('/feed')
+@login_required
+def feed(): 
+    # Buscado todas as informações na class Post ordenadas pelo atributo 'data_criação'
+    imagens = Post.query.order_by(Post.data_criaçao.desc()).all()
+    # .desc() -> vem de descending, ou seja, ordem decrescente
+    return render_template('feed.html', fotos=imagens)
