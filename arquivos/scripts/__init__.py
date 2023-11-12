@@ -26,5 +26,3 @@ database = SQLAlchemy(app)
 bcrypt = Bcrypt(app) # Criptográfia
 login_manager = LoginManager(app) # Gerenciador
 login_manager.login_view = 'homepage' # Para onde o usuario vai ser redirecionado quando não estiver logado
-
-import routes
