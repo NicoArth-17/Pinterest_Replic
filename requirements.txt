@@ -1,7 +1,7 @@
 Flask
 Flask_Bcrypt
 Flask_Login
-flask_sqlalchem==23.3.1
+flask_sqlalchemy
 flask_wtf
 Werkzeug
 WTForms
