@@ -9,6 +9,7 @@ secrets
 datetime
 email-validator
 gunicorn
+OpenSSL
 
 # bcrypt==4.0.1
 # certifi
