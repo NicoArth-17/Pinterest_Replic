@@ -1,5 +1,5 @@
 # Pinterest_Replic
- Réplica do site pinterest utilizando Python na maioria dos códigos.
+ Réplica do site Pinterest utilizando Python na maioria dos códigos.
 
  Site para adicionar imagens e compartilhá-las em um feed onde todas os usuários que adicionarem imagens terão as mesmas em seu próprio perfil, e além de conseguir acessá-las no feed, também verá imagens de outros usuários.
 

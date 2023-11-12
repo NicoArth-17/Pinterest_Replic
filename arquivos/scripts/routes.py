@@ -24,8 +24,9 @@ def homepage():
         # Caso usuário seja encontrado...
         if user:
             # Verificando se a senha inserida é a mesma da senha cadastrada e criptografada
-            if bcrypt.check_password_hash(user.senha, formlogar.senha.data):
+            if bcrypt.check_password_hash(user.senha.encode('utf-8'), formlogar.senha.data):
             # bcrypt.check_password_hash(senha crypt cadastrada, senha inserida no login) -> faz uma comparação
+            # .encode('utf-8') -> torna os caracteres depois de criptografados aceitos pela 'postgresql' (banco de dados do servidor render criado para colocar o projeto no ar) - encode para comparar com senha já cadastrada
 
                 # Criando login automático
                 login_user(user)
@@ -49,8 +50,9 @@ def cadastrar():
     # .validate_on_submit() -> diz que o botão submit foi clicado e que as validações estão ok
 
         # Criptografando a senha cadastrada
-        crypt_senha = bcrypt.generate_password_hash(formcadastro.senha.data)
+        crypt_senha = bcrypt.generate_password_hash(formcadastro.senha.data).decode('utf-8')
         # bcrypt.generate_password_hash(local onde a senha foi inserida) -> gera uma senha criptografada
+        # .decode('utf-8') -> torna os caracteres depois de criptografados aceitos pela 'postgresql' (banco de dados do servidor render criado para colocar o projeto no ar) - decode para cadastrar a senha
 
         user = Usuario(username=formcadastro.username.data, email=formcadastro.email.data, senha=crypt_senha)
 
@@ -128,6 +130,6 @@ def logout():
 @login_required
 def feed(): 
     # Buscado todas as informações na class Post ordenadas pelo atributo 'data_criação'
-    imagens = Post.query.order_by(Post.data_criaçao.desc()).all()
+    imagens = Post.query.order_by(Post.data_criacao.desc()).all()
     # .desc() -> vem de descending, ou seja, ordem decrescente
     return render_template('feed.html', fotos=imagens)

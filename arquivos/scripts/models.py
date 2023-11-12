@@ -38,7 +38,7 @@ class Post(database.Model):
     img = database.Column(database.String, default='default.png')
     # default= -> diz oque vai aparecer por padrão caso a info não seja inserida
     # a tabela no banco de dados irá comportar apenas o nome da imagem, já o arquivo será armazenado em uma pasta (neste caso a pasta: arquivos/static/fotos_posts)
-    data_criaçao = database.Column(database.DateTime, nullable=False, default=datetime.utcnow())
+    data_criacao = database.Column(database.DateTime, nullable=False, default=datetime.utcnow())
     id_user = database.Column(database.Integer, database.ForeignKey('usuario.id'), nullable=False)
     # database.ForeignKey('classe.atributo') -> Chave Estrangeira: pega o valor de um atributo de outra classe
     # obs: em 'classe.atributo' se escreve tudo minúsculo, mesmo que o nome da class esteja iniciando com letra maiúscula

@@ -1,10 +1,12 @@
+ATENÇÃO -> LER PRIMEIRO O TÓPICO 'SITE NO AR'
+
 # BIBLIOTECAS PARA CRIAR SITE:
 
     Teremos como opção para criação de sites os seguintes frameworks:
         - Flask
         - Django
 
-    Estes sendo os mais usados, mas usaremos o Flask por ter um início de aprendizdo mais facíl.
+    Estes sendo os mais usados, mas usarei o Flask por ter um início de aprendizdo mais facíl.
 
 
 # ESTRUTURAÇÃO DE PASTAS/ARQUIVOS PARA CRIAR SITE COM FLASK 
@@ -59,7 +61,18 @@
 
     Ao criptografar a senha que o usuário irá cadastrar utlizando Bcrypt, está senha será armazenada no banco de dados de forma criptografada para garantir uma maior segurança ao usuário. 
 
-# USO DE FRAMEWORKS PARA EDIÇÃO HTML E CSS
+
+# SITE NO AR - RENDER DASHBOARD
+
+    Para hospedarmos o site em um servidor vamos subir o projeto par um repositório no Github e em seguida usar a plataforma Render Dashboard, para isso seguiremos o seguinte passo a passo:
+
+    1. É DE EXTREMA NECESSIDADE CRIAR O PROJETO EM UM AMBIENTE VIRTUAL, pois vamos precisar de um arquivo de texto chamado 'requirements.txt' que abriga todas as bibliotecas usadas no projeto. Estando num ambiente virtual para gerar este arquivo com precisão, apenas precisamos executar no terminal o seguinte comando: pip feeze > requirements.txt
+
+    2. Casdatrar na plataforma com o Github
+
+    3. Clicar em Novo > Serviço de Internet > Encontrar o repositório referênte
+    
+    4. Preencher espaços obrigatórios. (No campo 'Comando Iniciar' preenchemos da seguinte forma: $ gunicorn NomeDoArquivoOndeProjetoExecutado:NomeDaAplicação , ou seja, no caso deste projeto ficaria: $ gunicorn main:app) 
 
 
 # OBSERVAÇÕES

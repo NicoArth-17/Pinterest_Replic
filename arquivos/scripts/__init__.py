@@ -4,8 +4,14 @@ from flask import Flask
 from flask_sqlalchemy import SQLAlchemy # Criar banco de dados
 from flask_login import LoginManager # Gerenciar senhas
 from flask_bcrypt import Bcrypt # Criptografar senha
+import os
 
 app = Flask(__name__)
+
+# if os.getenv('DEBUG') == 0:
+#     link_banco = os.getenv('DATABASE_URL')
+# else:
+#     link_banco = 'sqlite:///comunidade.db'
 
 # Configurando banco de dados sqlite junto ao 'app'
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///comunidade.db'
@@ -26,3 +32,6 @@ database = SQLAlchemy(app)
 bcrypt = Bcrypt(app) # Criptográfia
 login_manager = LoginManager(app) # Gerenciador
 login_manager.login_view = 'homepage' # Para onde o usuario vai ser redirecionado quando não estiver logado
+
+# Importando rotas para conseguir acessar os links/páginas do projeto
+import routes 

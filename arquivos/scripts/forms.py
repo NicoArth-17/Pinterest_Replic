@@ -27,7 +27,7 @@ class FormCadastrar(FlaskForm):
     email = StringField('Email', validators=[DataRequired(), Email()])
     username = StringField('Usuário', validators=[DataRequired()])
     senha = PasswordField('Senha', validators=[DataRequired(), Length(8,16)])
-    confirmaçao_senha = PasswordField('Confirmar Senha', validators=[DataRequired(), EqualTo('senha')])
+    confirmacao_senha = PasswordField('Confirmar Senha', validators=[DataRequired(), EqualTo('senha')])
     # EqualTo('NomeDoCampo/Atributo que deve ser igual')
     botao = SubmitField('Cadastrar')
 

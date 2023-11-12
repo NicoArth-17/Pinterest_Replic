@@ -1,0 +1,33 @@
+Flask==2.2.5
+Flask_Bcrypt==1.0.1
+Flask_Login==0.6.2
+flask_sqlalchemy==3.1.1
+flask_wtf==1.2.1
+Werkzeug==2.3.0
+WTForms==3.1.1
+os
+secrets
+datetime
+email-validator
+gunicorn
+
+# bcrypt==4.0.1
+# certifi
+# click==8.1.3
+# colorama==0.4.6
+# Flask
+# Flask-Bcrypt==1.0.1
+# Flask-Login==0.6.2
+# Flask-SQLAlchemy==3.0.5
+# Flask-WTF==1.1.1
+# gunicorn==21.2.0
+# idna==3.4
+# itsdangerous==2.1.2
+# Jinja2==3.1.2
+# MarkupSafe==2.1.2
+# psycopg2==2.9.7
+# SQLAlchemy==2.0.20
+# typing_extensions==4.7.1
+# Werkzeug
+# WTForms==3.0.1
+
