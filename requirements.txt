@@ -1,10 +1,10 @@
-Flask==2.2.5
-Flask_Bcrypt==1.0.1
-Flask_Login==0.6.2
-flask_sqlalchemy
-flask_wtf==1.2.1
-Werkzeug==2.3.0
-WTForms==3.1.1
+Flask
+Flask_Bcrypt
+Flask_Login
+flask_sqlalchem
+flask_wtf
+Werkzeug
+WTForms
 os
 secrets
 datetime
