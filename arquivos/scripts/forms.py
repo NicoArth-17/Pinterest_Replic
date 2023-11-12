@@ -11,6 +11,17 @@ class FormLogin(FlaskForm):
     senha = PasswordField('Senha', validators=[DataRequired()])
     botao = SubmitField('Entrar')
 
+    # Já que no arquivo models.py definimos o campo de email como uma informação unique, criaremos uma validação para essa info realmente ser única 
+    # Function para validação de campo no form, deve ter nome digitado da seguinte forma: validate_NomeDoCampo/Atributo()
+    # Esse formato se dá pois usaremos uma função no arquivo de rotas que chamará todos os métodos de validação de campo ao clicar no botão submit
+    def validate_email(self, email):
+        # Encontrando email no banco de dados
+        user_email = Usuario.query.filter_by(email=email.data).first()
+
+        # Exibindo menssagem de erro
+        if not user_email: # se o email não for encontrado 
+            raise ValidationError('Email não cadastrado, crie uma conta!')
+
 
 class FormCadastrar(FlaskForm):
     email = StringField('Email', validators=[DataRequired(), Email()])
@@ -20,7 +31,7 @@ class FormCadastrar(FlaskForm):
     # EqualTo('NomeDoCampo/Atributo que deve ser igual')
     botao = SubmitField('Cadastrar')
 
-    # Já que no arquivo models.py definimos o campo de email como uma imnformação unique, criaremos uma validação para esse info realmente ser única 
+    # Já que no arquivo models.py definimos o campo de email como uma informação unique, criaremos uma validação para essa info realmente ser única 
     # Function para validação de campo no form, deve ter nome digitado da seguinte forma: validate_NomeDoCampo/Atributo()
     # Esse formato se dá pois usaremos uma função no arquivo de rotas que chamará todos os métodos de validação de campo ao clicar no botão submit
     def validate_email(self, email):
@@ -30,8 +41,9 @@ class FormCadastrar(FlaskForm):
         # campo -> retorna o campo | campo.data -> retorna a informação presente no campo
         # .first() -> pega o primeiro valor encontrado
 
-        if user_email: # se já existir este email cadastrado, aparecerá uma mensagem de erro
-            return ValidationError('Email já cadastrado')
+        # Exibindo menssagem de erro
+        if user_email: # se já existir este email cadastrado
+            raise ValidationError('Email já cadastrado, faça o login!')
         
 class FormPost(FlaskForm):
     post = FileField('Imagem', validators=[DataRequired()])

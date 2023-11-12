@@ -75,11 +75,29 @@
 
           <div class="div-input">
             {{ formulario.email.label(class="label") }}
+
+            <!-- Apresentando erros em forma de mensagem na tela -->
+            <!-- erro email não cadastrado -->
+            {% if formulario.email.errors %}
+                {% for erro in formulario.email.errors %}
+                    <p style="color: red;"> {{ erro }} </p>
+                {% endfor %}
+            {% endif %}
+
             {{ formulario.email(class="input") }}
           </div>
 
           <div class="div-input">
             {{ formulario.senha.label(class="label") }}
+
+            <!-- Apresentando erros em forma de mensagem na tela -->
+            <!-- erro  -->
+            {% if formulario.email.errors %}
+                {% for erro in formulario.email.errors %}
+                    <p style="color: red;"> {{ erro }} </p>
+                {% endfor %}
+            {% endif %}
+
             {{ formulario.senha(class="input") }}
           </div>
 

@@ -21,9 +21,14 @@
         - static: Pasta de arquivos estáticos. Imagens...
 
 
-# ASSOCIANDO UMA PAGE HTML EM PYTHON 
+# HTML E PYTHON 
 
-    Para encaminharmos um link com destino em outra página HTML, usamos o método url_for('nome_da_function_associada_a_página') dentro de '{{ }}' no codigo HTML para dizer ser um código em python. 
+    Para construirmos uma estrutura de código python, colocamos a estrutura dentro de chaves e percentuais. Exemplo: {% for item in lista %}, e finalizamos com end + nome da da estrutura: {% endfor %}.
+
+    Para referir uma variável python em html utilizamos chaves duplas: {{ variável }}.
+    
+    Para encaminharmos um link com destino em outra página HTML, usamos o método: 
+    {{ url_for( 'nome_da_function_associada_a_página' ) }}.
 
         EX.: <a href="{{ url_for('homepage') }}">sair</a>
  
