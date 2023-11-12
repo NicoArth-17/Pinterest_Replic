@@ -5,7 +5,6 @@ flask_sqlalchemy
 flask_wtf
 Werkzeug
 WTForms
-os
 secrets
 datetime
 email-validator
