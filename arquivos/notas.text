@@ -80,3 +80,5 @@ ATENÇÃO -> LER PRIMEIRO O TÓPICO 'SITE NO AR'
     1. Foi instalado a PYPI 'email_validator' para validação de email, o WTForms usa internamente para fazer validação de e-mails.
 
     2. A função validate_on_submit() na verdade valida todo o formulário, não apenas o campo designado como SubmitField(). Ela é usada para verificar se o método de solicitação do formulário é "POST" e se todos os campos passaram por suas respectivas validações. Isso inclui verificar se os campos estão preenchidos adequadamente, se os valores estão no formato correto e se atendem a quaisquer outras regras de validação que você tenha definido.
+
+    3. Quanto ao GitHub Pages, ele é uma plataforma que permite hospedar sites estáticos diretamente a partir de repositórios do GitHub. Você pode usar HTML, CSS e JavaScript para criar seu site e, em seguida, hospedá-lo no GitHub Pages. No entanto, ele não suporta o deploy de projetos Flask ou Django, que são frameworks de desenvolvimento web dinâmico.
